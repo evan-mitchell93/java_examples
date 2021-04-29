@@ -3,6 +3,7 @@
         "random_selection",
         "factory_pattern",
         "Stacks",
-        "LinkedList"
+        "LinkedList",
+        "BinaryTree"
     ]
 }
