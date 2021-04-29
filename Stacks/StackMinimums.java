@@ -1,16 +1,22 @@
 import java.util.*;
 
 public class StackMinimums {
+
     static int min_push(Stack<Integer> stack1, Stack<Integer> stack2, int value, int minimum){
+        //If new minimum, add to both stacks
         if(value <= minimum){
             stack2.push(value);
             minimum = value;
         }
+
+        //if not a new minimum only add to stack1
         stack1.push(value);
         return minimum;
     }
 
     static int min_pop(Stack<Integer> stack1, Stack<Integer> stack2, int currentMinimum){
+
+        //if current minimum is top of stack1 remove from both stacks and replace current min
         if(((Integer)stack1.peek()) == currentMinimum){
             stack2.pop();
             currentMinimum = ((Integer)stack2.peek());
