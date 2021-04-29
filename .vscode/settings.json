@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
+        "random_selection",
         "factory_pattern",
-        "random_selection"
+        "Stacks"
     ]
 }
