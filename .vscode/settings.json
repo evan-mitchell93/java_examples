@@ -2,6 +2,7 @@
     "java.project.sourcePaths": [
         "random_selection",
         "factory_pattern",
-        "Stacks"
+        "Stacks",
+        "LinkedList"
     ]
 }
