@@ -3,8 +3,9 @@
         "random_selection",
         "factory_pattern",
         "Stacks",
+        "RandomShapes",
         "LinkedList",
         "BinaryTree",
-        "RandomShapes"
+        "c322-Spring-2018/Game-of-Life"
     ]
 }
