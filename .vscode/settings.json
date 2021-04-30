@@ -4,6 +4,7 @@
         "factory_pattern",
         "Stacks",
         "LinkedList",
-        "BinaryTree"
+        "BinaryTree",
+        "RandomShapes"
     ]
 }
