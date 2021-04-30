@@ -9,10 +9,13 @@ public class MyFrame extends JFrame implements KeyListener {
     
     ArrayList<Rectangle> rects;
     ArrayList<Circle> circles;
+    ArrayList<Triangle> triangles;
 
     public MyFrame(){
         this.rects = new ArrayList<Rectangle>();
         this.circles = new ArrayList<Circle>();
+        this.triangles = new ArrayList<Triangle>();
+
         addKeyListener(this);
         setTitle("Shapes");
         setSize(400,400);
@@ -29,6 +32,10 @@ public class MyFrame extends JFrame implements KeyListener {
         //draw all the circles
         for(Circle c : circles){
             c.draw(g2d);
+        }
+
+        for(Triangle t : triangles){
+            t.draw(g2d);
         }
     }
 
@@ -66,6 +73,18 @@ public class MyFrame extends JFrame implements KeyListener {
             c.setColor(new Color(rnd.nextFloat(), rnd.nextFloat(), rnd.nextFloat()));
             c.setPosition(rnd.nextInt((300-10) + 10), rnd.nextInt((300 - 10) + 10));
             this.circles.add(c);
+            repaint();
+
+        }
+
+        //if t is released create a new triangle with random color and points
+        //add it to the list of triangles and redraw
+        if(e.getKeyCode() == KeyEvent.VK_T){
+            Random rnd = new Random();
+            Triangle t = new Triangle();
+            t.setColor(new Color(rnd.nextFloat(), rnd.nextFloat(), rnd.nextFloat()));
+            t.setPosition(0,0);
+            this.triangles.add(t);
             repaint();
 
         }
