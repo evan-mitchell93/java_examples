@@ -1,13 +1,13 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Circle implements Shape {
+public class Circle extends Shape {
 
     private int radius;
-    private int x, y;
     private Color c;
 
     public Circle(int radius){
+        super();
         this.radius = radius;
     }
     @Override
@@ -17,16 +17,14 @@ public class Circle implements Shape {
     }
 
     @Override
-    public void setPosition(int x, int y) {
-        this.x = x;
-        this.y= y;
-        
-    }
-
-    @Override
     public void draw(Graphics g) {
         g.setColor(this.c);
-        g.fillOval(x,y, radius,radius);
+        g.fillOval(xPos,yPos, radius,radius);
+    }
+
+    public void setPos(){
+        xPos = rnd.nextInt((300-10) + 10);
+        yPos = rnd.nextInt((300-10) + 10);
     }
     
 }

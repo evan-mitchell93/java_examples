@@ -2,13 +2,14 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
-public class Triangle implements Shape {
+public class Triangle extends Shape {
 
     private int x[];
     private int y[];
     private Color c;
 
     public Triangle(){
+        super();
         this.x = new int[3];
         this.y = new int[3];
     }
@@ -18,8 +19,7 @@ public class Triangle implements Shape {
         
     }
 
-    @Override
-    public void setPosition(int x, int y) {
+    public void setPos() {
         Random rnd = new Random();
         //randomize x values
         this.x[0] = rnd.nextInt((300-10) + 10);

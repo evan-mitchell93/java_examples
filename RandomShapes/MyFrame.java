@@ -7,14 +7,11 @@ import java.util.Random;
 
 public class MyFrame extends JFrame implements KeyListener {
     
-    ArrayList<Rectangle> rects;
-    ArrayList<Circle> circles;
-    ArrayList<Triangle> triangles;
+    ArrayList<Shape> shapes;
 
     public MyFrame(){
-        this.rects = new ArrayList<Rectangle>();
-        this.circles = new ArrayList<Circle>();
-        this.triangles = new ArrayList<Triangle>();
+
+        shapes = new ArrayList<Shape>();
 
         addKeyListener(this);
         setTitle("Shapes");
@@ -25,17 +22,8 @@ public class MyFrame extends JFrame implements KeyListener {
 
     public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        //draw all the rectangles
-        for(Rectangle r : rects){
-            r.draw(g2d);
-        }
-        //draw all the circles
-        for(Circle c : circles){
-            c.draw(g2d);
-        }
-
-        for(Triangle t : triangles){
-            t.draw(g2d);
+        for(Shape s : shapes){
+            s.draw(g2d);
         }
     }
 
@@ -57,10 +45,10 @@ public class MyFrame extends JFrame implements KeyListener {
             Random rnd = new Random();
             int w = rnd.nextInt((100- 10) + 10);
             int h = rnd.nextInt((100 - 10) + 10);
-            Rectangle r = new Rectangle(w, h);
+            Shape r = new Rectangle(w, h);
             r.setColor(new Color(rnd.nextFloat(), rnd.nextFloat(), rnd.nextFloat()));
-            r.setPosition(rnd.nextInt((300-10) + 10), rnd.nextInt((300 - 10) + 10));
-            this.rects.add(r);
+            r.setPos();
+            this.shapes.add(r);
             repaint();
 
         }
@@ -69,10 +57,10 @@ public class MyFrame extends JFrame implements KeyListener {
         if(e.getKeyCode() == KeyEvent.VK_C){
             Random rnd = new Random();
             int rad = rnd.nextInt((100- 10) + 10);
-            Circle c = new Circle(rad);
+            Shape c = new Circle(rad);
             c.setColor(new Color(rnd.nextFloat(), rnd.nextFloat(), rnd.nextFloat()));
-            c.setPosition(rnd.nextInt((300-10) + 10), rnd.nextInt((300 - 10) + 10));
-            this.circles.add(c);
+            c.setPos();
+            this.shapes.add(c);
             repaint();
 
         }
@@ -81,10 +69,10 @@ public class MyFrame extends JFrame implements KeyListener {
         //add it to the list of triangles and redraw
         if(e.getKeyCode() == KeyEvent.VK_T){
             Random rnd = new Random();
-            Triangle t = new Triangle();
+            Shape t = new Triangle();
             t.setColor(new Color(rnd.nextFloat(), rnd.nextFloat(), rnd.nextFloat()));
-            t.setPosition(0,0);
-            this.triangles.add(t);
+            t.setPos();
+            this.shapes.add(t);
             repaint();
 
         }

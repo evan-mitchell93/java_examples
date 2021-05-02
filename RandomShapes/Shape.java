@@ -1,7 +1,17 @@
-import java.awt.*;
+import java.util.Random;
 
-public interface Shape {
-    public void setColor(Color c);
-    public void setPosition(int x, int y);
-    public void draw(Graphics g);
+abstract class Shape implements Drawable {
+
+    protected int xPos;
+    protected int yPos;
+    Random rnd;
+    public Shape(){
+        rnd = new Random();
+        xPos = 0;
+        yPos = 0;
+    }
+
+    abstract void setPos();
+
+
 }

@@ -1,12 +1,12 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Rectangle implements Shape {
+public class Rectangle extends Shape {
     private int width, height;
     private Color c;
-    private int x, y;
     
     public Rectangle(int width, int height){
+        super();
         this.width = width;
         this.height = height;
     }
@@ -16,15 +16,14 @@ public class Rectangle implements Shape {
     }
 
     @Override
-    public void setPosition(int x, int y) {
-       this.x = x;
-       this.y = y; 
-    }
-
-    @Override
     public void draw(Graphics g) {
         g.setColor(c);
-        g.fillRect(x, y, width, height);
+        g.fillRect(xPos, yPos, width, height);
+    }
+
+    public void setPos(){
+        xPos = rnd.nextInt((300-10) + 10);
+        yPos = rnd.nextInt((300-10) + 10);
     }
     
 }
